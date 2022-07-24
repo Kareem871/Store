@@ -1,0 +1,57 @@
+<mat-drawer-container class="container" [hasBackdrop]="false" autosize (click)="closeDrawer()">
+    <app-navigation></app-navigation>
+    <mat-drawer #drawer mode="over" class="drawer">
+        <div class="drawer-content" *ngIf="index >= 0;">
+            <h2>{{products[index].title}}</h2>
+            <img class="drawer-img" src="http://localhost:8080/images/{{products[index].filename}}" alt="Photo of a Shiba Inu">
+            <h3>₪ {{products[index].price}}</h3>
+            <button mat-raised-button color="primary" title="إضافة إلى سلةالمشتريات">إضافة</button>
+        </div>
+    </mat-drawer>
+
+    <mat-card class="example-card" *ngFor="let product of products;let i = index;">
+        <div (click)="drawer.toggle(); showDetails($event,i);">
+            <mat-card-header>
+                <mat-card-title>{{product.title}}</mat-card-title>
+            </mat-card-header>
+            <img class="matImg" mat-card-image src="http://localhost:8080/images/{{product.filename}}" alt="Photo of a Shiba Inu">
+
+            <mat-card-content>₪ {{product.price}}</mat-card-content>
+            <mat-card-content>متوفر: {{product.quantity}} قطعة</mat-card-content>
+        </div>
+        <mat-card-actions>
+            <button class="card-button" mat-raised-button color="primary" title="إضافة إلى سلةالمشتريات">إضافة</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="example-card" *ngFor="let product of products;let i = index;">
+        <div (click)="drawer.toggle(); showDetails($event,i);">
+            <mat-card-header>
+                <mat-card-title>{{product.title}}</mat-card-title>
+            </mat-card-header>
+            <img class="matImg" mat-card-image src="http://localhost:8080/images/{{product.filename}}" alt="Photo of a Shiba Inu">
+
+            <mat-card-content>₪ {{product.price}}</mat-card-content>
+            <mat-card-content>متوفر: {{product.quantity}} قطعة</mat-card-content>
+        </div>
+        <mat-card-actions>
+            <button class="card-button" mat-raised-button color="primary" title="إضافة إلى سلةالمشتريات">إضافة</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="example-card" *ngFor="let product of products;let i = index;">
+        <div (click)="drawer.toggle(); showDetails($event,i);">
+            <mat-card-header>
+                <mat-card-title>{{product.title}}</mat-card-title>
+            </mat-card-header>
+            <img class="matImg" mat-card-image src="http://localhost:8080/images/{{product.filename}}" alt="Photo of a Shiba Inu">
+
+            <mat-card-content>₪ {{product.price}}</mat-card-content>
+            <mat-card-content>متوفر: {{product.quantity}} قطعة</mat-card-content>
+        </div>
+        <mat-card-actions>
+            <button class="card-button" mat-raised-button color="primary" title="إضافة إلى سلةالمشتريات">إضافة</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <app-footer></app-footer>
+
+</mat-drawer-container>

@@ -1,0 +1,102 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center;
+    height: 50%;
+}
+
+mat-label,
+label,
+mat-file-upload-queue,
+input {
+    color: black;
+    float: right;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.file-input {
+    display: none;
+}
+
+div {
+    font-family: 'Tajawal', sans-serif;
+}
+
+.file-upload {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Tajawal', sans-serif;
+    /* color: black; */
+}
+
+.listButton {
+    float: right;
+    margin: 2rem;
+}
+
+.formButton {
+    font-family: 'Tajawal', sans-serif;
+    width: 25%;
+    margin: 1rem;
+}
+
+.message {
+    margin-top: 1rem;
+    float: right;
+    /* font-weight: 650; */
+    color: red;
+}
+
+mat-option {
+    font-family: 'Tajawal', sans-serif;
+    text-align: right;
+    /* color: black; */
+}
+
+::ng-deep .mat-select-value {
+    /* color: black; */
+    float: right;
+    text-align: right;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.upload {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    background-color: rgba(48, 48, 48, 0.15);
+    border-radius: 1rem;
+    padding: 4rem;
+    width: 33%;
+    margin: 2rem auto 4rem auto;
+}
+
+mat-error {
+    margin: 1rem;
+    text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+::ng-deep .mat-select-panel {
+    background: white;
+}
+
+::ng-deep .mat-option-text,
+::ng-deep .mat-select-value-text,
+::ng-deep .mat-select-arrow {
+    color: black !important;
+}

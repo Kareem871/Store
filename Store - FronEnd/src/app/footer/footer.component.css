@@ -1,0 +1,12 @@
+span {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    margin-left: auto;
+}
+
+p {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    display: inline;
+    float: right;
+}

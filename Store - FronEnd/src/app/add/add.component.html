@@ -1,0 +1,78 @@
+<app-navigation></app-navigation>
+
+<button mat-fab color="primary" class="listButton" title="قائمة المعروضات" [routerLink]="'/view'">
+    <mat-icon >view_list</mat-icon>
+</button>
+
+<div class="form">
+    <mat-label>اختر صورة</mat-label>
+    <div ngDefaultControl [(ngModel)]="enabled" #ctrl="ngModel" name="enabled" class="upload">
+        <input (change)="this.onFilechange($event)" class="file-upload" type="file">
+        <div *ngIf="!enabled">
+            <span class="message">
+                يجب أن يكون الملف المرفوع صورة
+            </span>
+        </div>
+        <mat-error *ngIf="fileExistsError">{{fileExistsError}}</mat-error>
+    </div>
+
+    <form class="example-container" [formGroup]="form" (ngSubmit)="addProduct()">
+        <mat-form-field appearance="fill">
+            <mat-label>اسم المنتج</mat-label>
+            <input matInput formControlName="title" type="text">
+        </mat-form-field>
+        <div ngDefaultControl [(ngModel)]="titleErr" #ctrl="ngModel" name="titleErr" [ngModelOptions]="{standalone: true}">
+            <mat-error>{{titleErr}}</mat-error>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>سعر القطعة</mat-label>
+            <input matInput formControlName="price" type="number" required>
+        </mat-form-field>
+        <div ngDefaultControl [(ngModel)]="priceError" #ctrl="ngModel" name="priceError" [ngModelOptions]="{standalone: true}">
+            <mat-error>{{priceError}}</mat-error>
+        </div>
+        <mat-form-field>
+            <mat-label>اختر النوع</mat-label>
+            <mat-select name="level" class="select" formControlName="type" required>
+                <mat-option value="Fresh">بلوزة</mat-option>
+                <mat-option value="Entry">بنطلون</mat-option>
+                <mat-option value="Junior">فستان</mat-option>
+                <mat-option value="Mid-Level">طقم</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div ngDefaultControl [(ngModel)]="typeError" #ctrl="ngModel" name="typeError" [ngModelOptions]="{standalone: true}">
+            <mat-error *ngIf="typeError">{{typeError}}</mat-error>
+        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>الكمية</mat-label>
+            <input matInput formControlName="quantity" type="number">
+        </mat-form-field>
+        <div ngDefaultControl [(ngModel)]="quantityErr" #ctrl="ngModel" name="quantityErr" [ngModelOptions]="{standalone: true}">
+            <mat-error>{{quantityErr}}</mat-error>
+        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>اسم التاجر</mat-label>
+            <input matInput formControlName="traderName" type="text">
+        </mat-form-field>
+        <div ngDefaultControl [(ngModel)]="traderNErr" #ctrl="ngModel" name="traderNErr" [ngModelOptions]="{standalone: true}">
+            <mat-error>{{traderNErr}}</mat-error>
+        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>حصة التاجر</mat-label>
+            <input matInput formControlName="traderShare" type="number">
+        </mat-form-field>
+        <div ngDefaultControl [(ngModel)]="tradersErr" #ctrl="ngModel" name="tradersErr" [ngModelOptions]="{standalone: true}">
+            <mat-error>{{tradersErr}}</mat-error>
+        </div>
+
+        <div>
+            <button mat-raised-button [routerLink]="'/view'" class="formButton">إلغاء</button>
+            <button mat-raised-button color="primary" class="formButton">إضافة</button>
+        </div>
+    </form>
+</div>
+
+<app-footer></app-footer>

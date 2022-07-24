@@ -1,0 +1,42 @@
+span {
+    font-family: 'Tajawal', sans-serif;
+}
+
+button {
+    font-size: 18px;
+}
+
+.right-icons {
+    margin-right: 4rem;
+    display: inline;
+}
+
+.right-list-icons {
+    float: right;
+    margin-left: auto;
+    margin-right: 2rem;
+}
+
+.navbar {
+    height: 8%;
+}
+
+@media (max-width:500px) {
+    .navbar {
+        padding: 20px 10px !important;
+    }
+    .right-list-icons {
+        float: right;
+        height: 100%;
+        margin-left: 0;
+        margin-right: 2rem;
+        width: 40%;
+    }
+    .navbar {
+        height: 18%;
+    }
+    .right-icons {
+        display: inline;
+        float: right;
+    }
+}
