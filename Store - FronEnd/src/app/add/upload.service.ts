@@ -8,6 +8,7 @@ export class UploadService {
  
  constructor(private httpClient: HttpClient) { }
  
+ // Send the uploaded file to the backend
  public uploadfile(file: File) {
     let formParams = new FormData();
     formParams.append('file', file)

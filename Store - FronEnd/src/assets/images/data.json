@@ -1,0 +1,8 @@
+{
+    "sliderArray": [
+        { "img": "http://localhost:4200/assets/1.jpg", "alt": "", "text": "صورة 1" },
+        { "img": "http://localhost:4200/assets/2.jpg", "alt": "", "text": "صورة 2" },
+        { "img": "http://localhost:4200/assets/3.jpg", "alt": "", "text": "صورة 3" },
+        { "img": "http://localhost:4200/assets/4.jpg", "alt": "", "text": "صورة 4" }
+    ]
+}

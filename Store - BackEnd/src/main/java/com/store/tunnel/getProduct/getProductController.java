@@ -9,13 +9,26 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+/**
+ Author: Kareem M
+ Date: 01/May/2023
+ Description: Return the available products from getRepository Interface
+
+ Last Updated:
+ 01/May/2023 - Create GET Controller
+ 08/Oct/2023 - Add Comments and refactor the code
+ **/
+
 @Slf4j
 @RestController
 @RequestMapping("/view")
 public class getProductController {
+
     @Autowired
     private getRepository gr;
 
+    // List of products when submitting GET request
     @ResponseBody
     @GetMapping
     @CrossOrigin(origins = "http://localhost:4200")

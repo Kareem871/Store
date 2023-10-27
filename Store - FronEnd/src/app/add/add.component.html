@@ -1,10 +1,13 @@
 <app-navigation></app-navigation>
 
+<!-- Route to View Products page -->
 <button mat-fab color="primary" class="listButton" title="قائمة المعروضات" [routerLink]="'/view'">
     <mat-icon >view_list</mat-icon>
 </button>
 
 <div class="form">
+
+    <!-- Upload Product Photo -->
     <mat-label>اختر صورة</mat-label>
     <div ngDefaultControl [(ngModel)]="enabled" #ctrl="ngModel" name="enabled" class="upload">
         <input (change)="this.onFilechange($event)" class="file-upload" type="file">
@@ -16,6 +19,8 @@
         <mat-error *ngIf="fileExistsError">{{fileExistsError}}</mat-error>
     </div>
 
+
+    <!-- Product details form -->
     <form class="example-container" [formGroup]="form" (ngSubmit)="addProduct()">
         <mat-form-field appearance="fill">
             <mat-label>اسم المنتج</mat-label>
@@ -68,6 +73,7 @@
             <mat-error>{{tradersErr}}</mat-error>
         </div>
 
+        <!-- Action buttons -->
         <div>
             <button mat-raised-button [routerLink]="'/view'" class="formButton">إلغاء</button>
             <button mat-raised-button color="primary" class="formButton">إضافة</button>

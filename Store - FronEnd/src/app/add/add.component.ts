@@ -1,8 +1,19 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { UploadService } from './upload.service';
+// import { UploadService } from './upload.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { Router } from '@angular/router';
+
+/**
+ Author: Kareem M
+ Date: 01/May/2023
+ Description: 
+
+ Last Updated:
+ 01/May/2023 - Create Component
+ 09/Oct/2023 - Add Comments and refactor the code
+
+**/
 
 @Component({
   selector: 'app-add',
@@ -11,7 +22,10 @@ import { Router } from '@angular/router';
 })
 export class AddComponent implements OnInit {
   form!: FormGroup
+
   ngOnInit(): void {
+
+    // Create Group to construct the API request
     this.form = new FormGroup({
       title: new FormControl(),
       type: new FormControl(),
@@ -21,13 +35,15 @@ export class AddComponent implements OnInit {
       traderName: new FormControl(),
       traderShare: new FormControl('', Validators.maxLength(this['price']))
     }) 
+
   }
 
   file!: File;
   enabled: boolean = true;
   // form: FormGroup = this.createFormGroup();
+  
+  // Define the variables which stores the error message of each product attribute
   fileExistsError: String = '';
-
   titleErr: String = '';
   priceError: String ='';
   typeError: String = '';
@@ -35,20 +51,10 @@ export class AddComponent implements OnInit {
   traderNErr: String = '';
   quantityErr: String = '';
 
+  // This will contain the error messages
   errFields!: Array<String>
 
   constructor(private httpClient: HttpClient, private router: Router, private fb: FormBuilder) { }
-
-  // createFormGroup(){
-  //   return new FormGroup({
-  //     type: new FormControl(),
-  //     filename: new FormControl(),
-  //     price: new FormControl(),
-  //     quantity: new FormControl(),
-  //     traderName: new FormControl(),
-  //     traderShare: new FormControl()
-  //   }) 
-  // }
 
   onFilechange(event: any) {
   
@@ -57,10 +63,10 @@ export class AddComponent implements OnInit {
     const extension = event.target.files[0].type
     const type = extension.substring(extension.lastIndexOf('/') + 1)
 
-    if (type != "jpeg" && type != "png"){
-      this.enabled = false
-    } else {
+    if (type == "jpeg" && type == "png"){
       this.enabled = true
+    } else {
+      this.enabled = false
     }
   }
 
@@ -107,7 +113,8 @@ export class AddComponent implements OnInit {
             this.errFields.push(err.field)
           }
 
-          let missing = ['price','type','traderName','traderShare','quantity','title'].filter(item => this.errFields.indexOf(item) < 0);
+          let missing = ['price','type','traderName','traderShare','quantity','title']
+                            .filter(item => this.errFields.indexOf(item) < 0);
 
           for (let i of missing) {
             if (i == "price") this.priceError = ''
